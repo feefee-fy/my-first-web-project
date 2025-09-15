@@ -22,7 +22,7 @@
   ],
   "headers": [
     {
-      "src": "/unity-vr/Build/(.*)",
+      "source": "/unity-vr/Build/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "src": "/unity-vr/TemplateData/(.*)",
+      "source": "/unity-vr/TemplateData/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -44,11 +44,20 @@
       ]
     },
     {
-      "src": "/unity-vr/Build/\\.data",
+      "source": "/unity-vr/Build/(.*)\\.data",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/octet-stream"
+        }
+      ]
+    },
+    {
+      "source": "/unity-vr/Build/(.*)\\.wasm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
         }
       ]
     }
