@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网页</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>我的网站 - VR体验中心</title>
+
+    <!-- 样式表按正确顺序加载 -->
+    <link rel="stylesheet" href="css/style.css">      <!-- 基础样式 -->
+    <link rel="stylesheet" href="css/vr-styles.css">  <!-- VR专用样式 -->
 </head>
 <body>
-<!-- 内容区域 -->
-<div class="content" id="mainContent">
-    <h1>你好，世界！</h1>
-    <p>这是我的第一个用Deveco Studio创建的网页。</p>
-    <p>欢迎来到这个演示页面，这里展示了字体大小、颜色和语言切换功能。</p>
+<!-- 页面内容 -->
+<div class="content">
+    <h1>欢迎来到我的网站</h1>
+    <p>下面可以体验Unity VR项目</p>
 </div>
 
-<!-- 控制面板 - 现在在内容下方 -->
-<div class="control-panel">
-    <button onclick="toggleFontSize()">大小</button>
-    <button onclick="toggleFontColor()">颜色</button>
-    <button onclick="toggleLanguage()">语言</button>
-</div>
+<!-- VR体验区域 -->
 <div class="vr-section">
-    <h2>VR体验</h2>
-    <p>点击下方按钮体验Unity VR项目</p>
-    <a href="/vr-experience/" class="vr-button">进入VR体验</a>
+    <!-- ... VR内容保持不变 ... -->
 </div>
+
+<!-- 脚本加载 -->
+<script src="/unity-vr/Build/UnityLoader.js"></script>
 <script src="js/script.js"></script>
+<script src="js/vr-script.js"></script>  <!-- 将VR相关JS也外部化 -->
 </body>
 </html>

@@ -1,136 +1,104 @@
-body {
-    font-family: Arial, sans-serif;
+
+
+/* VR体验区样式 */
+.vr-section {
+    margin: 40px 0;
     text-align: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
-    transition: all 0.3s ease;
+}
+
+#unity-container {
+    width: 100%;
+    height: 600px;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    background: #000;
+    position: relative;
+}
+
+#unity-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-}
-
-/* 内容区域 */
-.content {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    max-width: 800px;
-    margin: 0 auto 30px auto; /* 增加底部间距 */
-    text-align: left;
-    line-height: 1.6;
-    width: 90%;
-}
-
-/* 控制面板样式 - 现在在内容下方 */
-.control-panel {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* 按钮样式 */
-button {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: linear-gradient(145deg, #4CAF50, #3e8e41);
     color: white;
+    font-size: 18px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.vr-controls {
+    margin: 20px 0;
+}
+
+.vr-button {
+    padding: 12px 24px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s;
-    min-width: 120px;
+    margin: 0 10px;
 }
 
-button:hover {
-    background: linear-gradient(145deg, #3e8e41, #2c6b2f);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.vr-button:hover {
+    background: #1976D2;
 }
 
-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-/* 字体大小类 */
-.font-small {
-    font-size: 14px;
-    line-height: 1.5;
-}
-.font-medium {
-    font-size: 16px;
-    line-height: 1.6;
-}
-.font-large {
-    font-size: 20px;
-    line-height: 1.7;
-}
-.font-xlarge {
-    font-size: 24px;
-    line-height: 1.8;
-}
-
-/* 响应式设计 */
+/* 媒体查询 */
 @media (max-width: 768px) {
-    .content {
-        padding: 25px;
-        margin-bottom: 20px;
+    #unity-container {
+        height: 400px;
+        border-radius: 8px;
     }
 
-    .control-panel {
+    .progress-bar {
+        width: 200px;
+    }
+
+    .vr-controls {
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    button {
-        width: 100%;
-        max-width: 250px;
-        padding: 12px 20px;
+        gap: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 15px;
+    #unity-container {
+        height: 300px;
     }
 
-    .content {
-        padding: 20px;
-        margin-bottom: 15px;
-    }
-
-    button {
+    .loading-overlay {
         font-size: 14px;
-        min-width: 100px;
-        padding: 10px 15px;
+        padding: 0 20px;
+        text-align: center;
     }
-}
-
-/* 临时消息样式 */
-.temp-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.9);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    z-index: 1000;
-    font-size: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }

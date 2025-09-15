@@ -1,13 +1,56 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "unity-vr/index.html",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     {
-      "src": "/vr-experience/(.*)",
-      "dest": "/vr-experience/index.html"
+      "src": "/unity-vr/(.*)",
+      "dest": "/unity-vr/index.html"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "src": "/unity-vr/Build/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "src": "/unity-vr/TemplateData/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "src": "/unity-vr/Build/\\.data",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        }
+      ]
     }
   ]
 }
